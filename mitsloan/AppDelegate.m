@@ -9,10 +9,17 @@
 #import "AppDelegate.h"
 
 @implementation AppDelegate
+@synthesize window;
+@synthesize tabBarController;
+@synthesize scheduleView;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [self.window makeKeyAndVisible];
+	scheduleView = [[ScheduleViewController alloc] init];
+	[window addSubview:tabBarController.view];
+	[self.tabBarController presentViewController:scheduleView animated:NO completion:nil];
     return YES;
 }
 							
@@ -41,6 +48,15 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void) dealloc
+{
+//    [window release];
+//    [scheduleView release];
+//    [tabBarController release];
+//    [super dealloc];
+    
 }
 
 @end

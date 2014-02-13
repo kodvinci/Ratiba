@@ -7,9 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ScheduleViewController.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate> {
+    UIWindow *window;
+	IBOutlet UITabBarController *tabBarController;
+	ScheduleViewController *scheduleView;
+}
+
 
 @property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
+@property (nonatomic, retain) ScheduleViewController *scheduleView;
 
 @end

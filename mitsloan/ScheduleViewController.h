@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ScheduleViewController : UITableViewController
+@interface ScheduleViewController : UIViewController
 
 @end
