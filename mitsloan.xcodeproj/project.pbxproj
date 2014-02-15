@@ -22,6 +22,7 @@
 		0AD2B23D18AD0A08008EB808 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AD2B21C18AD0A08008EB808 /* UIKit.framework */; };
 		0AD2B24518AD0A08008EB808 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0AD2B24318AD0A08008EB808 /* InfoPlist.strings */; };
 		0AD2B24718AD0A08008EB808 /* mitsloanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD2B24618AD0A08008EB808 /* mitsloanTests.m */; };
+		0AD2B25218AFF68C008EB808 /* PanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD2B25118AFF68C008EB808 /* PanelViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		0AD2B24218AD0A08008EB808 /* mitsloanTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "mitsloanTests-Info.plist"; sourceTree = "<group>"; };
 		0AD2B24418AD0A08008EB808 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0AD2B24618AD0A08008EB808 /* mitsloanTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mitsloanTests.m; sourceTree = "<group>"; };
+		0AD2B25018AFF68C008EB808 /* PanelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanelViewController.h; sourceTree = "<group>"; };
+		0AD2B25118AFF68C008EB808 /* PanelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanelViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +125,8 @@
 				0AD2B22E18AD0A08008EB808 /* ScheduleViewController.m */,
 				0AD2B23018AD0A08008EB808 /* SpeakersViewController.h */,
 				0AD2B23118AD0A08008EB808 /* SpeakersViewController.m */,
+				0AD2B25018AFF68C008EB808 /* PanelViewController.h */,
+				0AD2B25118AFF68C008EB808 /* PanelViewController.m */,
 				0AD2B23318AD0A08008EB808 /* Images.xcassets */,
 				0AD2B21F18AD0A08008EB808 /* Supporting Files */,
 			);
@@ -256,6 +261,7 @@
 			files = (
 				0AD2B23218AD0A08008EB808 /* SpeakersViewController.m in Sources */,
 				0AD2B22918AD0A08008EB808 /* AppDelegate.m in Sources */,
+				0AD2B25218AFF68C008EB808 /* PanelViewController.m in Sources */,
 				0AD2B22F18AD0A08008EB808 /* ScheduleViewController.m in Sources */,
 				0AD2B22518AD0A08008EB808 /* main.m in Sources */,
 			);
