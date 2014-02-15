@@ -21,9 +21,9 @@
 @property (nonatomic, strong) NSString *time;
 @property (nonatomic, strong) NSString *location;
 @property (nonatomic, strong) NSArray *panelists;
-@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
-@property (strong, nonatomic) IBOutlet UILabel *timeLabel;
-@property (strong, nonatomic) IBOutlet UILabel *blurbLabel;
-@property (strong, nonatomic) IBOutlet UILabel *locationLabel;
+@property (strong, retain) IBOutlet UILabel *titleLabel;
+@property (strong, retain) IBOutlet UILabel *timeLabel;
+@property (strong, retain) IBOutlet UILabel *blurbLabel;
+@property (strong, retain) IBOutlet UILabel *locationLabel;
 
 @end

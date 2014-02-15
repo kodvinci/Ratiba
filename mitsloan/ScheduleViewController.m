@@ -17,6 +17,7 @@
 {
     [super viewDidLoad];
 	self.tableView.dataSource = self;
+    self.tableView.delegate = self;
     self.scheduleArray = [[NSArray alloc] initWithObjects:
                         @"Always put your fears behind you ...",
                         @"A relationship with no trust is like ...",
@@ -39,6 +40,13 @@
     [cell.textLabel setText:panel];
     [cell.detailTextLabel setText:@"wakati fulani"];
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    PanelViewController *panelView = [self.storyboard instantiateViewControllerWithIdentifier:@"PanelViewController"];
+    panelView.blurb = [self.scheduleArray objectAtIndex:indexPath.row];
+    [self.navigationController pushViewController:panelView animated:YES];
 }
 
 - (void)didReceiveMemoryWarning

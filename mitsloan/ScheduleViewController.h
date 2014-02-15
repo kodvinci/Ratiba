@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PanelViewController.h"
 
-@interface ScheduleViewController : UIViewController <UITableViewDataSource>
+@interface ScheduleViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {
     IBOutlet UITableView *tableView;
 }
