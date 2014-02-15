@@ -8,16 +8,37 @@
 
 #import "ScheduleViewController.h"
 
-@interface ScheduleViewController ()
-
-@end
-
 @implementation ScheduleViewController
+
+@synthesize tableView;
+@synthesize scheduleArray;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	self.tableView.dataSource = self;
+    self.scheduleArray = [[NSArray alloc] initWithObjects:
+                        @"Always put your fears behind you ...",
+                        @"A relationship with no trust is like ...",
+                        @"People should stop talking about their problem ...",
+                        @"Dear Chuck Norris, Screw you ...",
+                        @"My arms will always be open for you ...",
+                        nil];
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.scheduleArray count];
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *cellIdentifier = @"SettingsCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    NSString *panel = [self.scheduleArray objectAtIndex:indexPath.row];
+    [cell.textLabel setText:panel];
+    [cell.detailTextLabel setText:@"wakati fulani"];
+    return cell;
 }
 
 - (void)didReceiveMemoryWarning
