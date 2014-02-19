@@ -8,13 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "PanelViewController.h"
+#import "Panel.h"
 
 @interface ScheduleViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {
-    IBOutlet UITableView *tableView;
+    IBOutlet UITableView *scheduleView;
 }
 
-@property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) UITableView *scheduleView;
 @property (strong, nonatomic) NSArray *scheduleArray;
 
 @end

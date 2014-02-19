@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A2D016418B544070022CE24 /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2D016318B544070022CE24 /* FeedbackViewController.m */; };
+		0A9E52BF18B4F58B001BFCE1 /* Panel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E52BE18B4F58B001BFCE1 /* Panel.m */; };
 		0AD2B21918AD0A08008EB808 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AD2B21818AD0A08008EB808 /* Foundation.framework */; };
 		0AD2B21B18AD0A08008EB808 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AD2B21A18AD0A08008EB808 /* CoreGraphics.framework */; };
 		0AD2B21D18AD0A08008EB808 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AD2B21C18AD0A08008EB808 /* UIKit.framework */; };
@@ -36,6 +38,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A2D016218B544070022CE24 /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
+		0A2D016318B544070022CE24 /* FeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
+		0A9E52BD18B4F58B001BFCE1 /* Panel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Panel.h; sourceTree = "<group>"; };
+		0A9E52BE18B4F58B001BFCE1 /* Panel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Panel.m; sourceTree = "<group>"; };
 		0AD2B21518AD0A08008EB808 /* mitsloan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mitsloan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AD2B21818AD0A08008EB808 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0AD2B21A18AD0A08008EB808 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -120,14 +126,18 @@
 			children = (
 				0AD2B22718AD0A08008EB808 /* AppDelegate.h */,
 				0AD2B22818AD0A08008EB808 /* AppDelegate.m */,
+				0A2D016218B544070022CE24 /* FeedbackViewController.h */,
+				0A2D016318B544070022CE24 /* FeedbackViewController.m */,
+				0AD2B23318AD0A08008EB808 /* Images.xcassets */,
 				0AD2B22A18AD0A08008EB808 /* Main.storyboard */,
+				0A9E52BD18B4F58B001BFCE1 /* Panel.h */,
+				0A9E52BE18B4F58B001BFCE1 /* Panel.m */,
+				0AD2B25018AFF68C008EB808 /* PanelViewController.h */,
+				0AD2B25118AFF68C008EB808 /* PanelViewController.m */,
 				0AD2B22D18AD0A08008EB808 /* ScheduleViewController.h */,
 				0AD2B22E18AD0A08008EB808 /* ScheduleViewController.m */,
 				0AD2B23018AD0A08008EB808 /* SpeakersViewController.h */,
 				0AD2B23118AD0A08008EB808 /* SpeakersViewController.m */,
-				0AD2B25018AFF68C008EB808 /* PanelViewController.h */,
-				0AD2B25118AFF68C008EB808 /* PanelViewController.m */,
-				0AD2B23318AD0A08008EB808 /* Images.xcassets */,
 				0AD2B21F18AD0A08008EB808 /* Supporting Files */,
 			);
 			path = mitsloan;
@@ -259,8 +269,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A9E52BF18B4F58B001BFCE1 /* Panel.m in Sources */,
 				0AD2B23218AD0A08008EB808 /* SpeakersViewController.m in Sources */,
 				0AD2B22918AD0A08008EB808 /* AppDelegate.m in Sources */,
+				0A2D016418B544070022CE24 /* FeedbackViewController.m in Sources */,
 				0AD2B25218AFF68C008EB808 /* PanelViewController.m in Sources */,
 				0AD2B22F18AD0A08008EB808 /* ScheduleViewController.m in Sources */,
 				0AD2B22518AD0A08008EB808 /* main.m in Sources */,
@@ -472,6 +484,7 @@
 				0AD2B24C18AD0A08008EB808 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0AD2B24D18AD0A08008EB808 /* Build configuration list for PBXNativeTarget "mitsloanTests" */ = {
 			isa = XCConfigurationList;
@@ -480,6 +493,7 @@
 				0AD2B24F18AD0A08008EB808 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

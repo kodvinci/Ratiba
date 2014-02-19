@@ -10,21 +10,26 @@
 
 @implementation ScheduleViewController
 
-@synthesize tableView;
+@synthesize scheduleView;
 @synthesize scheduleArray;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	self.tableView.dataSource = self;
-    self.tableView.delegate = self;
-    self.scheduleArray = [[NSArray alloc] initWithObjects:
-                        @"Always put your fears behind you ...",
-                        @"A relationship with no trust is like ...",
-                        @"People should stop talking about their problem ...",
-                        @"Dear Chuck Norris, Screw you ...",
-                        @"My arms will always be open for you ...",
-                        nil];
+	self.scheduleView.dataSource = self;
+    self.scheduleView.delegate = self;
+    self.scheduleArray = [self getDummyScheduleArray];
+    
+}
+
+-(NSArray *) getDummyScheduleArray
+{
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    for (int i=0; i<10; i++) {
+        Panel *panel = [[Panel alloc] init];
+        [array addObject:panel];
+    }
+    return array;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -36,23 +41,35 @@
 {
     static NSString *cellIdentifier = @"SettingsCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    NSString *panel = [self.scheduleArray objectAtIndex:indexPath.row];
-    [cell.textLabel setText:panel];
-    [cell.detailTextLabel setText:@"wakati fulani"];
+    Panel *panel = [self.scheduleArray objectAtIndex:indexPath.row];
+    [cell.textLabel setText:panel.title];
+    [cell.detailTextLabel setText:[self getDateString:panel.startTime]];
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     PanelViewController *panelView = [self.storyboard instantiateViewControllerWithIdentifier:@"PanelViewController"];
-    panelView.blurb = [self.scheduleArray objectAtIndex:indexPath.row];
+    Panel *myPanel = [self.scheduleArray objectAtIndex:indexPath.row];
+    panelView.title = myPanel.title;
+    panelView.location = myPanel.location;
+    panelView.blurb = myPanel.blurb;
+    panelView.time = [self getDateString:myPanel.startTime];
+    panelView.panelists = myPanel.speakers;
     [self.navigationController pushViewController:panelView animated:YES];
+}
+
+-(NSString *) getDateString:(NSDate *) date
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *stringFromDate = [formatter stringFromDate:date];
+    return stringFromDate;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

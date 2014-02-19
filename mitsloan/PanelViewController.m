@@ -15,10 +15,12 @@
 @synthesize time;
 @synthesize location;
 @synthesize panelists;
-@synthesize titleLabel;
 @synthesize timeLabel;
 @synthesize blurbLabel;
 @synthesize locationLabel;
+@synthesize panelistsView;
+@synthesize speakersLabel;
+@synthesize feedbackButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,15 +34,36 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.titleLabel setText:self.title];
+    self.panelistsView.dataSource = self;
     [self.timeLabel setText:self.time];
     [self.blurbLabel setText:self.blurb];
     [self.locationLabel setText:self.location];
+    [self.speakersLabel setText:@"Panelists"];
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.panelists count];
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *cellIdentifier = @"SettingsCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    NSString *speaker = [self.panelists objectAtIndex:indexPath.row];
+    [cell.textLabel setText:speaker];
+    return cell;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+-(IBAction)sendFeedback
+{
+    FeedbackViewController *feedbackView = [self.storyboard instantiateViewControllerWithIdentifier:@"FeedbackViewController"];
+    [self.navigationController pushViewController:feedbackView animated:YES];
 }
 
 @end
