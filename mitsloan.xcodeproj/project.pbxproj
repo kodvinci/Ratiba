@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0A2D016418B544070022CE24 /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2D016318B544070022CE24 /* FeedbackViewController.m */; };
+		0A2D016618B575700022CE24 /* greenButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A2D016518B575700022CE24 /* greenButton.png */; };
+		0A2D016918B576AB0022CE24 /* Speaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2D016818B576AB0022CE24 /* Speaker.m */; };
+		0A2D016C18B577D50022CE24 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2D016B18B577D50022CE24 /* Contact.m */; };
+		0A2D016F18B580510022CE24 /* SpeakerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2D016E18B580510022CE24 /* SpeakerViewController.m */; };
 		0A9E52BF18B4F58B001BFCE1 /* Panel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E52BE18B4F58B001BFCE1 /* Panel.m */; };
 		0AD2B21918AD0A08008EB808 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AD2B21818AD0A08008EB808 /* Foundation.framework */; };
 		0AD2B21B18AD0A08008EB808 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AD2B21A18AD0A08008EB808 /* CoreGraphics.framework */; };
@@ -40,6 +44,13 @@
 /* Begin PBXFileReference section */
 		0A2D016218B544070022CE24 /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
 		0A2D016318B544070022CE24 /* FeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
+		0A2D016518B575700022CE24 /* greenButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenButton.png; sourceTree = "<group>"; };
+		0A2D016718B576AB0022CE24 /* Speaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Speaker.h; sourceTree = "<group>"; };
+		0A2D016818B576AB0022CE24 /* Speaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Speaker.m; sourceTree = "<group>"; };
+		0A2D016A18B577D50022CE24 /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
+		0A2D016B18B577D50022CE24 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
+		0A2D016D18B580510022CE24 /* SpeakerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeakerViewController.h; sourceTree = "<group>"; };
+		0A2D016E18B580510022CE24 /* SpeakerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeakerViewController.m; sourceTree = "<group>"; };
 		0A9E52BD18B4F58B001BFCE1 /* Panel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Panel.h; sourceTree = "<group>"; };
 		0A9E52BE18B4F58B001BFCE1 /* Panel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Panel.m; sourceTree = "<group>"; };
 		0AD2B21518AD0A08008EB808 /* mitsloan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mitsloan.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +137,8 @@
 			children = (
 				0AD2B22718AD0A08008EB808 /* AppDelegate.h */,
 				0AD2B22818AD0A08008EB808 /* AppDelegate.m */,
+				0A2D016A18B577D50022CE24 /* Contact.h */,
+				0A2D016B18B577D50022CE24 /* Contact.m */,
 				0A2D016218B544070022CE24 /* FeedbackViewController.h */,
 				0A2D016318B544070022CE24 /* FeedbackViewController.m */,
 				0AD2B23318AD0A08008EB808 /* Images.xcassets */,
@@ -136,6 +149,10 @@
 				0AD2B25118AFF68C008EB808 /* PanelViewController.m */,
 				0AD2B22D18AD0A08008EB808 /* ScheduleViewController.h */,
 				0AD2B22E18AD0A08008EB808 /* ScheduleViewController.m */,
+				0A2D016718B576AB0022CE24 /* Speaker.h */,
+				0A2D016818B576AB0022CE24 /* Speaker.m */,
+				0A2D016D18B580510022CE24 /* SpeakerViewController.h */,
+				0A2D016E18B580510022CE24 /* SpeakerViewController.m */,
 				0AD2B23018AD0A08008EB808 /* SpeakersViewController.h */,
 				0AD2B23118AD0A08008EB808 /* SpeakersViewController.m */,
 				0AD2B21F18AD0A08008EB808 /* Supporting Files */,
@@ -146,6 +163,7 @@
 		0AD2B21F18AD0A08008EB808 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0A2D016518B575700022CE24 /* greenButton.png */,
 				0AD2B22018AD0A08008EB808 /* mitsloan-Info.plist */,
 				0AD2B22118AD0A08008EB808 /* InfoPlist.strings */,
 				0AD2B22418AD0A08008EB808 /* main.m */,
@@ -251,6 +269,7 @@
 				0AD2B23418AD0A08008EB808 /* Images.xcassets in Resources */,
 				0AD2B22318AD0A08008EB808 /* InfoPlist.strings in Resources */,
 				0AD2B22C18AD0A08008EB808 /* Main.storyboard in Resources */,
+				0A2D016618B575700022CE24 /* greenButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,7 +294,10 @@
 				0A2D016418B544070022CE24 /* FeedbackViewController.m in Sources */,
 				0AD2B25218AFF68C008EB808 /* PanelViewController.m in Sources */,
 				0AD2B22F18AD0A08008EB808 /* ScheduleViewController.m in Sources */,
+				0A2D016F18B580510022CE24 /* SpeakerViewController.m in Sources */,
 				0AD2B22518AD0A08008EB808 /* main.m in Sources */,
+				0A2D016C18B577D50022CE24 /* Contact.m in Sources */,
+				0A2D016918B576AB0022CE24 /* Speaker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

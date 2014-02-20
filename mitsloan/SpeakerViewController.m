@@ -1,23 +1,26 @@
 //
-//  FeedbackViewController.m
+//  SpeakerViewController.m
 //  mitsloan
 //
 //  Created by Leonard Ng'eno on 2/19/14.
 //  Copyright (c) 2014 Leonard Ng'eno. All rights reserved.
 //
 
-#import "FeedbackViewController.h"
+#import "SpeakerViewController.h"
 
-@implementation FeedbackViewController
+@implementation SpeakerViewController
 
-@synthesize feedbackView;
-@synthesize feedbackLabel;
-@synthesize feedbackButton;
+@synthesize speakerBio;
+@synthesize speakerContact;
+@synthesize bio;
+@synthesize contact;
+@synthesize name;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        // Custom initialization
     }
     return self;
 }
@@ -25,15 +28,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"Feedback Form";
-	[self.feedbackLabel setText:@"please leave your feedback below"];
-    [self.feedbackView setText:@"The panel was ...."];
-    
+    self.title = self.name;
+	[self.speakerBio setText:self.bio];
+    [self.speakerContact setText:[self getContactString:self.contact]];
 }
 
--(IBAction)submitFeedback
+-(NSString *) getContactString:(Contact *) contact
 {
-    //Send back feed to the backend!
+    return @"contact";
 }
 
 - (void)didReceiveMemoryWarning

@@ -16,6 +16,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title = @"Schedule";
 	self.scheduleView.dataSource = self;
     self.scheduleView.delegate = self;
     self.scheduleArray = [self getDummyScheduleArray];
@@ -43,7 +44,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     Panel *panel = [self.scheduleArray objectAtIndex:indexPath.row];
     [cell.textLabel setText:panel.title];
-    [cell.detailTextLabel setText:[self getDateString:panel.startTime]];
+    [cell.detailTextLabel setText:[self getTime:panel.startTime :panel.endTime]];
     return cell;
 }
 
@@ -54,7 +55,7 @@
     panelView.title = myPanel.title;
     panelView.location = myPanel.location;
     panelView.blurb = myPanel.blurb;
-    panelView.time = [self getDateString:myPanel.startTime];
+    panelView.time = [self getTime:myPanel.startTime :myPanel.endTime];
     panelView.panelists = myPanel.speakers;
     [self.navigationController pushViewController:panelView animated:YES];
 }
@@ -65,6 +66,22 @@
     [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSString *stringFromDate = [formatter stringFromDate:date];
     return stringFromDate;
+}
+
+-(NSString *) getTime:(NSDate *) start :(NSDate *) end
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    NSString *date = [formatter stringFromDate:start];
+    [formatter setDateFormat:@"HH:mm"];
+    NSString *startTime = [formatter stringFromDate:start];
+    NSString *endTime = [formatter stringFromDate:end];
+    NSMutableString *time = [[NSMutableString alloc] initWithString:date];
+    [time appendString:@" "];
+    [time appendString:startTime];
+    [time appendString:@" - "];
+    [time appendString:endTime];
+    return time;
 }
 
 - (void)didReceiveMemoryWarning
