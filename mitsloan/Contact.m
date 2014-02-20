@@ -13,6 +13,7 @@
 @synthesize email;
 @synthesize twitterHandle;
 @synthesize telephone;
+@synthesize address;
 @synthesize id;
 
 -(id) init
@@ -29,6 +30,7 @@
     self.email = @"hodari@yahoo.com";
     self.telephone = @"919-111-6444";
     self.twitterHandle = @"tweetler";
+    self.address = @"Nyumbani Lane, Keja 101";
 }
 
 @end

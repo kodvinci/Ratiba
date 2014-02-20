@@ -13,12 +13,14 @@
     NSString *email;
     NSString *twitterHandle;
     NSString *telephone;
+    NSString *address;
     NSInteger id;
 }
 
 @property(nonatomic, retain) NSString *email;
 @property(nonatomic, retain) NSString *twitterHandle;
 @property(nonatomic, retain) NSString *telephone;
+@property(nonatomic, retain) NSString *address;
 @property(nonatomic, assign) NSInteger id;
 
 -(id)init;
