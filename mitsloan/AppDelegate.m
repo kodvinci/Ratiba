@@ -17,10 +17,24 @@
 {
     // Override point for customization after application launch.
     [self.window makeKeyAndVisible];
+    [self setTabBarAppearance];
+    [self setNavigationBarAppearance];
 	scheduleView = [[ScheduleViewController alloc] init];
 	[window addSubview:tabBarController.view];
 	[self.tabBarController presentViewController:scheduleView animated:NO completion:nil];
     return YES;
+}
+
+-(void) setTabBarAppearance
+{
+    [[UITabBar appearance] setTintColor:[UIColor greenColor]];
+    [[UITabBar appearance] setBarTintColor:[UIColor redColor]];
+}
+
+-(void) setNavigationBarAppearance
+{
+    [[UINavigationBar appearance] setTintColor:[UIColor greenColor]];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor redColor]];
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -52,10 +66,6 @@
 
 - (void) dealloc
 {
-//    [window release];
-//    [scheduleView release];
-//    [tabBarController release];
-//    [super dealloc];
     
 }
 
