@@ -9,10 +9,13 @@
 /* Begin PBXBuildFile section */
 		0A2D016418B544070022CE24 /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2D016318B544070022CE24 /* FeedbackViewController.m */; };
 		0A2D016618B575700022CE24 /* greenButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A2D016518B575700022CE24 /* greenButton.png */; };
-		0A2D016918B576AB0022CE24 /* Speaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2D016818B576AB0022CE24 /* Speaker.m */; };
 		0A2D016C18B577D50022CE24 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2D016B18B577D50022CE24 /* Contact.m */; };
 		0A2D016F18B580510022CE24 /* SpeakerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2D016E18B580510022CE24 /* SpeakerViewController.m */; };
+		0A612EA518C3A98C00935C22 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A612EA418C3A98C00935C22 /* DataManager.m */; };
+		0A612ED718C3BEB800935C22 /* FileUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A612ED618C3BEB800935C22 /* FileUtility.m */; };
 		0A7A06A618BFEA8C008A9416 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7A06A518BFEA8C008A9416 /* CoreData.framework */; };
+		0A7A06A918BFEC2F008A9416 /* Ratiba.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0A7A06A718BFEC2F008A9416 /* Ratiba.xcdatamodeld */; };
+		0A7A06AC18BFF75F008A9416 /* Speaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7A06AB18BFF75F008A9416 /* Speaker.m */; };
 		0A9E52BF18B4F58B001BFCE1 /* Panel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E52BE18B4F58B001BFCE1 /* Panel.m */; };
 		0AD2B21918AD0A08008EB808 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AD2B21818AD0A08008EB808 /* Foundation.framework */; };
 		0AD2B21B18AD0A08008EB808 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AD2B21A18AD0A08008EB808 /* CoreGraphics.framework */; };
@@ -46,13 +49,18 @@
 		0A2D016218B544070022CE24 /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
 		0A2D016318B544070022CE24 /* FeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
 		0A2D016518B575700022CE24 /* greenButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenButton.png; sourceTree = "<group>"; };
-		0A2D016718B576AB0022CE24 /* Speaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Speaker.h; sourceTree = "<group>"; };
-		0A2D016818B576AB0022CE24 /* Speaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Speaker.m; sourceTree = "<group>"; };
 		0A2D016A18B577D50022CE24 /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
 		0A2D016B18B577D50022CE24 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
 		0A2D016D18B580510022CE24 /* SpeakerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeakerViewController.h; sourceTree = "<group>"; };
 		0A2D016E18B580510022CE24 /* SpeakerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeakerViewController.m; sourceTree = "<group>"; };
+		0A612EA318C3A98C00935C22 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		0A612EA418C3A98C00935C22 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		0A612ED518C3BEB800935C22 /* FileUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUtility.h; sourceTree = "<group>"; };
+		0A612ED618C3BEB800935C22 /* FileUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileUtility.m; sourceTree = "<group>"; };
 		0A7A06A518BFEA8C008A9416 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		0A7A06A818BFEC2F008A9416 /* Ratiba.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Ratiba.xcdatamodel; sourceTree = "<group>"; };
+		0A7A06AA18BFF75F008A9416 /* Speaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Speaker.h; sourceTree = "<group>"; };
+		0A7A06AB18BFF75F008A9416 /* Speaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Speaker.m; sourceTree = "<group>"; };
 		0A9E52BD18B4F58B001BFCE1 /* Panel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Panel.h; sourceTree = "<group>"; };
 		0A9E52BE18B4F58B001BFCE1 /* Panel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Panel.m; sourceTree = "<group>"; };
 		0AD2B21518AD0A08008EB808 /* mitsloan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mitsloan.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,9 +113,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A612ED418C3BCD400935C22 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0A7A06AA18BFF75F008A9416 /* Speaker.h */,
+				0A7A06AB18BFF75F008A9416 /* Speaker.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		0AD2B20C18AD0A08008EB808 = {
 			isa = PBXGroup;
 			children = (
+				0A7A06A718BFEC2F008A9416 /* Ratiba.xcdatamodeld */,
 				0AD2B21E18AD0A08008EB808 /* mitsloan */,
 				0AD2B24018AD0A08008EB808 /* mitsloanTests */,
 				0AD2B21718AD0A08008EB808 /* Frameworks */,
@@ -140,25 +158,25 @@
 			isa = PBXGroup;
 			children = (
 				0AD2B22718AD0A08008EB808 /* AppDelegate.h */,
-				0AD2B22818AD0A08008EB808 /* AppDelegate.m */,
 				0A2D016A18B577D50022CE24 /* Contact.h */,
-				0A2D016B18B577D50022CE24 /* Contact.m */,
+				0A612EA318C3A98C00935C22 /* DataManager.h */,
 				0A2D016218B544070022CE24 /* FeedbackViewController.h */,
-				0A2D016318B544070022CE24 /* FeedbackViewController.m */,
-				0AD2B23318AD0A08008EB808 /* Images.xcassets */,
-				0AD2B22A18AD0A08008EB808 /* Main.storyboard */,
 				0A9E52BD18B4F58B001BFCE1 /* Panel.h */,
-				0A9E52BE18B4F58B001BFCE1 /* Panel.m */,
 				0AD2B25018AFF68C008EB808 /* PanelViewController.h */,
-				0AD2B25118AFF68C008EB808 /* PanelViewController.m */,
 				0AD2B22D18AD0A08008EB808 /* ScheduleViewController.h */,
-				0AD2B22E18AD0A08008EB808 /* ScheduleViewController.m */,
-				0A2D016718B576AB0022CE24 /* Speaker.h */,
-				0A2D016818B576AB0022CE24 /* Speaker.m */,
-				0A2D016D18B580510022CE24 /* SpeakerViewController.h */,
-				0A2D016E18B580510022CE24 /* SpeakerViewController.m */,
 				0AD2B23018AD0A08008EB808 /* SpeakersViewController.h */,
+				0A2D016D18B580510022CE24 /* SpeakerViewController.h */,
+				0AD2B22818AD0A08008EB808 /* AppDelegate.m */,
+				0A2D016B18B577D50022CE24 /* Contact.m */,
+				0A612EA418C3A98C00935C22 /* DataManager.m */,
+				0A2D016318B544070022CE24 /* FeedbackViewController.m */,
+				0A9E52BE18B4F58B001BFCE1 /* Panel.m */,
+				0AD2B25118AFF68C008EB808 /* PanelViewController.m */,
+				0AD2B22E18AD0A08008EB808 /* ScheduleViewController.m */,
 				0AD2B23118AD0A08008EB808 /* SpeakersViewController.m */,
+				0A2D016E18B580510022CE24 /* SpeakerViewController.m */,
+				0AD2B22A18AD0A08008EB808 /* Main.storyboard */,
+				0A612ED418C3BCD400935C22 /* Model */,
 				0AD2B21F18AD0A08008EB808 /* Supporting Files */,
 			);
 			path = mitsloan;
@@ -167,11 +185,14 @@
 		0AD2B21F18AD0A08008EB808 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0AD2B23318AD0A08008EB808 /* Images.xcassets */,
 				0A2D016518B575700022CE24 /* greenButton.png */,
 				0AD2B22018AD0A08008EB808 /* mitsloan-Info.plist */,
 				0AD2B22118AD0A08008EB808 /* InfoPlist.strings */,
 				0AD2B22418AD0A08008EB808 /* main.m */,
 				0AD2B22618AD0A08008EB808 /* mitsloan-Prefix.pch */,
+				0A612ED518C3BEB800935C22 /* FileUtility.h */,
+				0A612ED618C3BEB800935C22 /* FileUtility.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -292,6 +313,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A7A06AC18BFF75F008A9416 /* Speaker.m in Sources */,
+				0A612EA518C3A98C00935C22 /* DataManager.m in Sources */,
 				0A9E52BF18B4F58B001BFCE1 /* Panel.m in Sources */,
 				0AD2B23218AD0A08008EB808 /* SpeakersViewController.m in Sources */,
 				0AD2B22918AD0A08008EB808 /* AppDelegate.m in Sources */,
@@ -300,8 +323,9 @@
 				0AD2B22F18AD0A08008EB808 /* ScheduleViewController.m in Sources */,
 				0A2D016F18B580510022CE24 /* SpeakerViewController.m in Sources */,
 				0AD2B22518AD0A08008EB808 /* main.m in Sources */,
+				0A612ED718C3BEB800935C22 /* FileUtility.m in Sources */,
 				0A2D016C18B577D50022CE24 /* Contact.m in Sources */,
-				0A2D016918B576AB0022CE24 /* Speaker.m in Sources */,
+				0A7A06A918BFEC2F008A9416 /* Ratiba.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,6 +546,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0A7A06A718BFEC2F008A9416 /* Ratiba.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0A7A06A818BFEC2F008A9416 /* Ratiba.xcdatamodel */,
+			);
+			currentVersion = 0A7A06A818BFEC2F008A9416 /* Ratiba.xcdatamodel */;
+			path = Ratiba.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0AD2B20D18AD0A08008EB808 /* Project object */;
 }

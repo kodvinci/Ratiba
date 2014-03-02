@@ -2,27 +2,26 @@
 //  Speaker.h
 //  mitsloan
 //
-//  Created by Leonard Ng'eno on 2/19/14.
+//  Created by Leonard Ng'eno on 2/27/14.
 //  Copyright (c) 2014 Leonard Ng'eno. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "Contact.h"
-
-@interface Speaker : NSObject
-{
-    NSString *name;
-    NSString *bio;
-    Contact *contact;
-    NSInteger id;
-}
-
-@property(nonatomic, retain) NSString *name;
-@property(nonatomic, retain) NSString *bio;
-@property(nonatomic, retain) Contact *contact;
-@property(nonatomic, assign) NSInteger id;
+#import <CoreData/CoreData.h>
 
 
--(id)init;
+@interface Speaker : NSManagedObject
+
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSNumber * id;
+@property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) NSString * bio;
+@property (nonatomic, retain) NSData * imageData;
+@property (nonatomic, retain) UIImage * image;
+@property (nonatomic, retain) NSNumber * orderingValue;
+@property (nonatomic, retain) NSManagedObject *panels;
+
+- (void) setThumbnailDataFromImage:(UIImage *)image;
++ (CGSize) thumbnailSize;
 
 @end

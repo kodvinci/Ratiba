@@ -53,7 +53,7 @@
     Speaker *speaker = [self.speakersArray objectAtIndex:indexPath.row];
     speakerView.bio = speaker.bio;
     speakerView.name = speaker.name;
-    speakerView.contact = speaker.contact;
+    //speakerView.contact = speaker.contact;
     [self.navigationController pushViewController:speakerView animated:YES];
 }
 

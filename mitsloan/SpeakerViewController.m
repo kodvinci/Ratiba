@@ -13,7 +13,6 @@
 @synthesize speakerBio;
 @synthesize speakerContact;
 @synthesize bio;
-@synthesize contact;
 @synthesize name;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -30,12 +29,6 @@
     [super viewDidLoad];
     self.title = self.name;
 	[self.speakerBio setText:self.bio];
-    [self.speakerContact setText:[self getContactString:self.contact]];
-}
-
--(NSString *) getContactString:(Contact *) contact
-{
-    return @"contact";
 }
 
 - (void)didReceiveMemoryWarning
