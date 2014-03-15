@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Contact.h"
 
 @interface SpeakerViewController : UIViewController
 {

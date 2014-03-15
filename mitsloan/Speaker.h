@@ -10,7 +10,11 @@
 #import <CoreData/CoreData.h>
 
 
-@interface Speaker : NSManagedObject
+@interface Speaker : NSManagedObject <NSXMLParserDelegate>
+{
+    //id parentParserDelegate;
+    NSMutableString *currentString;
+}
 
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * id;
@@ -20,6 +24,7 @@
 @property (nonatomic, retain) UIImage * image;
 @property (nonatomic, retain) NSNumber * orderingValue;
 @property (nonatomic, retain) NSManagedObject *panels;
+@property (nonatomic, assign) id parentParserDelegate;
 
 - (void) setThumbnailDataFromImage:(UIImage *)image;
 + (CGSize) thumbnailSize;

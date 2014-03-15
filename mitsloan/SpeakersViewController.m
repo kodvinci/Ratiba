@@ -19,16 +19,15 @@
 	self.title = @"Speakers";
 	self.speakersView.dataSource = self;
     self.speakersView.delegate = self;
-    self.speakersArray = [self getDummySpeakersArray];
+    self.speakersArray =[self getAllSpeakers];
 }
 
--(NSArray *) getDummySpeakersArray
+-(NSArray *) getAllSpeakers
 {
-    NSMutableArray *array = [[NSMutableArray alloc] init];
-    for (int i=0; i<10; i++) {
-        Speaker *panelist = [[Speaker alloc] init];
-        [array addObject:panelist];
-    }
+    NSArray *array = [[NSArray alloc] init];
+    SpeakerDataManager *dataManager = [[SpeakerDataManager alloc] init];
+    //[dataManager createSpeaker]; //TODO delete
+    array = [dataManager allSpeakers];
     return array;
 }
 

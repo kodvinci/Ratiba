@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Leonard Ng'eno. All rights reserved.
 //
 
-#import "DataManager.h"
+#import "SpeakerDataManager.h"
 
-static DataManager *defaultDataManager = nil;
+static SpeakerDataManager *defaultDataManager = nil;
 
-@implementation DataManager
+@implementation SpeakerDataManager
 
-+ (DataManager *) defaultDataManager
++ (SpeakerDataManager *) defaultDataManager
 {
     if (!defaultDataManager) {
         // Create the singleton
@@ -56,7 +56,51 @@ static DataManager *defaultDataManager = nil;
     [context setPersistentStoreCoordinator:psc];
     
     [context setUndoManager:nil];
+    
+    [self fetchSpeakersXml];
+    
     return self;
+}
+
+- (void) fetchSpeakersXml
+{
+    xmlSpeakerData = [[NSMutableData alloc] init];
+    NSURL *speakersURL = [NSURL URLWithString: @"http://conference-app-backend.appspot.com/serve"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:speakersURL];
+    connection = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES];
+}
+
+- (void)connection:(NSURLConnection *)conn didReceiveData:(NSData *)data
+{
+    [xmlSpeakerData appendData:data];
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)conn
+{
+    NSXMLParser *parser = [[NSXMLParser alloc] initWithData:xmlSpeakerData];
+    [parser setDelegate:self];
+    [parser parse];
+}
+
+- (void)connection:(NSURLConnection *)conn didFailWithError:(NSError *)error
+{
+    NSString *errorString = [NSString stringWithFormat:@"Fetch failed: %@", [error localizedDescription]];
+    NSLog(@"%@ ERROR: ", errorString);
+}
+
+- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict
+{
+    //NSLog(@"%@ found a %@ element", self, elementName);
+    if ([elementName isEqual:@"Speaker"]) {
+       // NSLog(@"%@ found a %@ element", self, elementName);
+        Speaker *speaker = [NSEntityDescription insertNewObjectForEntityForName:@"Speaker" inManagedObjectContext:context];
+        [speaker setParentParserDelegate:self];
+        [parser setDelegate:speaker];
+        
+        [allSpeakers addObject:speaker];
+        [self saveChanges]; //TODO
+    }
+ 
 }
 
 - (BOOL)saveChanges
@@ -107,18 +151,17 @@ static DataManager *defaultDataManager = nil;
     }
     NSLog(@"Adding after %d items, order = %.2f",[allSpeakers count], order);
     Speaker *p = [NSEntityDescription insertNewObjectForEntityForName:@"Speaker" inManagedObjectContext:context];
+    [self assingDummyAttrsToSpeaker:p]; //TODO delete
     [p setOrderingValue:[NSNumber numberWithDouble:order]];
     [allSpeakers addObject:p];
     return p;
 }
 
-- (void)removeSpeaker:(Speaker *)speaker
+-(void) assingDummyAttrsToSpeaker: (Speaker *) sp
 {
-//    NSString *key = [speaker imageKey];
-//    [[ImageStore defaultImageStore] deleteImageForKey:key];
-//    [context deleteObject:speaker];
-//    [allPossessions removeObjectIdenticalTo:speaker];
+    sp.name = @"Dummy Speaker";
+    sp.bio = @"He is an awesome speaker";
+    sp.title = @"His Excellency";
 }
-
 
 @end
