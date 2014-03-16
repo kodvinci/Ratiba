@@ -6,22 +6,20 @@
 //  Copyright (c) 2014 Leonard Ng'eno. All rights reserved.
 //
 
-#import "SpeakerDataManager.h"
+#import "SpeakersManager.h"
 
-static SpeakerDataManager *defaultDataManager = nil;
+static SpeakersManager *defaultDataManager = nil;
 
-@implementation SpeakerDataManager
+@implementation SpeakersManager
 
-+ (SpeakerDataManager *) defaultDataManager
++ (SpeakersManager *) defaultDataManager
 {
     if (!defaultDataManager) {
-        // Create the singleton
         defaultDataManager = [[super allocWithZone:NULL] init];
     }
     return defaultDataManager;
 }
 
-// Prevent creation of additional instances
 + (id)allocWithZone:(NSZone *)zone
 {
     return [self defaultDataManager];
@@ -35,21 +33,16 @@ static SpeakerDataManager *defaultDataManager = nil;
     
     self = [super init];
     model = [NSManagedObjectModel mergedModelFromBundles:nil];
-    NSPersistentStoreCoordinator *psc =
-    [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
+    psc = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
     
-    NSString *path = pathInDocumentDirectory(@"store.data");
+    NSString *path = pathInDocumentDirectory(@"speakerstore.data");
     NSURL *storeURL = [NSURL fileURLWithPath:path];
     
     NSError *error = nil;
     
-    if (![psc addPersistentStoreWithType:NSSQLiteStoreType
-                           configuration:nil
-                                     URL:storeURL
-                                 options:nil
-                                   error:&error]) {
-        [NSException raise:@"Open failed"
-                    format:@"Reason: %@", [error localizedDescription]];
+    if (![psc addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error])
+    {
+        [NSException raise:@"Open failed" format:@"Reason: %@", [error localizedDescription]];
     }
     
     context = [[NSManagedObjectContext alloc] init];
@@ -57,7 +50,9 @@ static SpeakerDataManager *defaultDataManager = nil;
     
     [context setUndoManager:nil];
     
-    [self fetchSpeakersXml];
+    //TODO FIX FIX
+    //[self removeAllSpeakers];
+    //[self fetchSpeakersXml];
     
     return self;
 }
@@ -90,15 +85,14 @@ static SpeakerDataManager *defaultDataManager = nil;
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict
 {
-    //NSLog(@"%@ found a %@ element", self, elementName);
     if ([elementName isEqual:@"Speaker"]) {
-       // NSLog(@"%@ found a %@ element", self, elementName);
+        NSLog(@"%@ found a %@ element", self, elementName);
         Speaker *speaker = [NSEntityDescription insertNewObjectForEntityForName:@"Speaker" inManagedObjectContext:context];
         [speaker setParentParserDelegate:self];
         [parser setDelegate:speaker];
         
         [allSpeakers addObject:speaker];
-        [self saveChanges]; //TODO
+        [self saveChanges]; 
     }
  
 }
@@ -133,35 +127,29 @@ static SpeakerDataManager *defaultDataManager = nil;
         NSError *error;
         NSArray *result = [context executeFetchRequest:request error:&error];
         if (!result) {
-            [NSException raise:@"Fetch failed"
-                        format:@"Reason: %@", [error localizedDescription]];
+            [NSException raise:@"Fetch failed" format:@"Reason: %@", [error localizedDescription]];
         }
         allSpeakers = [[NSMutableArray alloc] initWithArray:result];
     }
 }
 
-- (Speaker *)createSpeaker
+- (void) removeAllSpeakers
 {
-    [self fetchSpeakersIfNecessary];
-    double order;
-    if ([allSpeakers count] == 0) {
-        order = 1.0;
-    } else {
-        order = [[[allSpeakers lastObject] orderingValue] doubleValue] + 1.0;
-    }
-    NSLog(@"Adding after %d items, order = %.2f",[allSpeakers count], order);
-    Speaker *p = [NSEntityDescription insertNewObjectForEntityForName:@"Speaker" inManagedObjectContext:context];
-    [self assingDummyAttrsToSpeaker:p]; //TODO delete
-    [p setOrderingValue:[NSNumber numberWithDouble:order]];
-    [allSpeakers addObject:p];
-    return p;
-}
+    NSManagedObjectContext *deleteContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+    deleteContext.persistentStoreCoordinator = psc;
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [[model entitiesByName] objectForKey:@"Speaker"];
+    [request setEntity:entity];
+    NSSortDescriptor *sd = [NSSortDescriptor sortDescriptorWithKey:@"orderingValue" ascending:YES];
+    [request setSortDescriptors:[NSArray arrayWithObject:sd]];
+    NSError *error;
+    NSArray *result = [deleteContext executeFetchRequest:request error:&error];
 
--(void) assingDummyAttrsToSpeaker: (Speaker *) sp
-{
-    sp.name = @"Dummy Speaker";
-    sp.bio = @"He is an awesome speaker";
-    sp.title = @"His Excellency";
+    for (Speaker *speaker in result) {
+        [deleteContext deleteObject:speaker];
+    }
+    [deleteContext save:&error];
+    [deleteContext reset];
 }
 
 @end

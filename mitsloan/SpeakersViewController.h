@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Speaker.h"
 #import "SpeakerViewController.h"
-#import "SpeakerDataManager.h"
+#import "SpeakersManager.h"
 
 @interface SpeakersViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {

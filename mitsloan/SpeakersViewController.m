@@ -24,11 +24,8 @@
 
 -(NSArray *) getAllSpeakers
 {
-    NSArray *array = [[NSArray alloc] init];
-    SpeakerDataManager *dataManager = [[SpeakerDataManager alloc] init];
-    //[dataManager createSpeaker]; //TODO delete
-    array = [dataManager allSpeakers];
-    return array;
+    SpeakersManager *dataManager = [[SpeakersManager alloc] init];
+    return [dataManager allSpeakers];
 }
 
 
@@ -43,6 +40,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     Speaker *panelist = [self.speakersArray objectAtIndex:indexPath.row];
     [cell.textLabel setText:panelist.name];
+    [cell.detailTextLabel setText:panelist.title];
     return cell;
 }
 
@@ -50,12 +48,13 @@
 {
     SpeakerViewController *speakerView = [self.storyboard instantiateViewControllerWithIdentifier:@"SpeakerViewController"];
     Speaker *speaker = [self.speakersArray objectAtIndex:indexPath.row];
+    [speaker awakeFromFetch];
     speakerView.bio = speaker.bio;
     speakerView.name = speaker.name;
-    //speakerView.contact = speaker.contact;
+    speakerView.sptitle = speaker.title;
+    speakerView.image = speaker.image;
     [self.navigationController pushViewController:speakerView animated:YES];
 }
-
 
 - (void)didReceiveMemoryWarning
 {

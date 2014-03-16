@@ -24,14 +24,14 @@
 - (void) awakeFromFetch
 {
     [super awakeFromFetch];
-    UIImage *tn = [UIImage imageWithData:[self imageData]];
-    [self setPrimitiveValue:tn forKey:@"image"];
+    self.image = [UIImage imageWithData:self.imageData];
+    [self setPrimitiveValue:self.image forKey:@"image"];
+    [self setThumbnailDataFromImage:self.image];
 }
 
 - (void) awakeFromInsert
 {
     [super awakeFromInsert];
-    // when objects are added to the db, they are sent the message awakeFromInsert
 }
 
 - (void) setThumbnailDataFromImage:(UIImage *)image
@@ -84,8 +84,8 @@
         self.title = currentString;
     }
     else if ([elementName isEqual:@"Image"]) {
-        //currentString = [[NSMutableString alloc] init];
-        //self.bio = currentString;
+        currentString = [[NSMutableString alloc] init];
+        self.imageData = [currentString dataUsingEncoding:NSUTF8StringEncoding];
     }
 }
 
@@ -96,7 +96,6 @@
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
-   // currentString = nil;
     if ([elementName isEqual:@"Speaker"])
         [parser setDelegate:parentParserDelegate];
 }

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "PanelViewController.h"
 #import "Panel.h"
+#import "PanelsManager.h"
 
 @interface ScheduleViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {

@@ -10,35 +10,66 @@
 
 @implementation Panel
 
-@synthesize title;
-@synthesize location;
-@synthesize speakers;
-@synthesize blurb;
-@synthesize startTime;
-@synthesize endTime;
-@synthesize id;
+@dynamic title;
+@dynamic location;
+@dynamic speakers;
+@dynamic blurb;
+@dynamic startTime;
+@dynamic endTime;
+@dynamic id;
+@dynamic theme;
+@synthesize parentParserDelegate;
+@dynamic orderingValue;
 
--(id) init
+- (void) awakeFromFetch
 {
-    if (self == [super init]) {
-        [self initDefaultAttributes];
-        //Initialize using the json data from the backend
-    }
-    return self;
+    [super awakeFromFetch];
 }
 
--(void) initDefaultAttributes
+- (void) awakeFromInsert
 {
-    self.title = @"Mobile Tech in Africa";
-    self.location = @"Gross Hall, 140 Science Drive";
-    self.speakers = [[NSMutableArray alloc] initWithObjects:
-                     @"James Mwangi",
-                     @"Lee Njiru",
-                     @"Edwin Rotich",
-                     nil];
-    self.blurb = @"This is a panel about the rise of mobile technology in Africa";
-    self.startTime = [NSDate date];
-    self.endTime = [NSDate date];
+    [super awakeFromInsert];
+}
+
+- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict
+{
+    NSLog(@"\t%@ found a %@ element", self, elementName);
+    
+    if ([elementName isEqual:@"Title"]) {
+        currentString = [[NSMutableString alloc] init];
+        self.title = currentString;
+    }
+    else if ([elementName isEqual:@"Blurb"]) {
+        currentString = [[NSMutableString alloc] init];
+        self.blurb = currentString;
+    }
+    else if ([elementName isEqual:@"Location"]) {
+        currentString = [[NSMutableString alloc] init];
+        self.location = currentString;
+    }
+    else if ([elementName isEqual:@"Theme"]) {
+        currentString = [[NSMutableString alloc] init];
+        self.theme = currentString;
+    }
+    else if ([elementName isEqual:@"StartTime"]) {
+        currentString = [[NSMutableString alloc] init];
+        self.startTime = currentString;
+    }
+    else if ([elementName isEqual:@"EndTime"]) {
+        currentString = [[NSMutableString alloc] init];
+        self.endTime = currentString;
+    }
+}
+
+- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)str
+{
+    [currentString appendString:str];
+}
+
+- (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
+{
+    if ([elementName isEqual:@"Panel"])
+        [parser setDelegate:parentParserDelegate];
 }
 
 @end

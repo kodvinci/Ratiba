@@ -7,27 +7,22 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@interface Panel : NSObject
+@interface Panel : NSManagedObject <NSXMLParserDelegate>
 {
-    NSString *title;
-    NSString *location;
-    NSMutableArray *speakers;
-    NSString *blurb;
-    NSDate *startTime;
-    NSDate *endTime;
-    NSInteger id;
+    NSMutableString *currentString;
 }
 
 @property(nonatomic, retain) NSString *title;
 @property(nonatomic, retain) NSString *location;
 @property(nonatomic, retain) NSMutableArray *speakers;
 @property(nonatomic, retain) NSString *blurb;
-@property(nonatomic, retain) NSDate *startTime;
-@property(nonatomic, retain) NSDate *endTime;
+@property(nonatomic, retain) NSString *startTime;
+@property(nonatomic, retain) NSString *endTime;
 @property(nonatomic, assign) NSInteger id;
-
-
--(id)init;
+@property(nonatomic, assign) NSString *theme;
+@property (nonatomic, assign) id parentParserDelegate;
+@property (nonatomic, retain) NSNumber * orderingValue;
 
 @end

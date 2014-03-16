@@ -10,7 +10,7 @@
 
 @implementation PanelViewController
 
-@synthesize title;
+@synthesize ptitle;
 @synthesize blurb;
 @synthesize time;
 @synthesize location;
@@ -21,6 +21,8 @@
 @synthesize panelistsView;
 @synthesize speakersLabel;
 @synthesize feedbackButton;
+@synthesize theme;
+@synthesize themeLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,11 +36,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title = self.ptitle;
     self.panelistsView.dataSource = self;
     [self.timeLabel setText:self.time];
     [self.blurbLabel setText:self.blurb];
     [self.locationLabel setText:self.location];
     [self.speakersLabel setText:@"Panelists"];
+    [self.themeLabel setText:self.theme];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

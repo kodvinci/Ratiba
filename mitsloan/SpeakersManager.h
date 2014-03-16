@@ -11,21 +11,20 @@
 #import "Speaker.h"
 #import "FileUtility.h"
 
-@interface SpeakerDataManager : NSObject <NSXMLParserDelegate>
+@interface SpeakersManager : NSObject <NSXMLParserDelegate>
 {
     NSMutableArray *allSpeakers;
     NSManagedObjectContext *context;
     NSManagedObjectModel *model;
     NSURLConnection *connection;
     NSMutableData *xmlSpeakerData;
+    NSPersistentStoreCoordinator *psc;
 }
 
-+ (SpeakerDataManager *)defaultDataManager;
++ (SpeakersManager *)defaultDataManager;
 - (BOOL) saveChanges;
 - (void) fetchSpeakersXml;
-
-#pragma mark Speakers
 - (NSArray *)allSpeakers;
-- (Speaker *)createSpeaker;
+- (void)removeAllSpeakers;
 
 @end

@@ -11,9 +11,12 @@
 @implementation SpeakerViewController
 
 @synthesize speakerBio;
-@synthesize speakerContact;
+@synthesize speakerTitle;
 @synthesize bio;
 @synthesize name;
+@synthesize sptitle;
+@synthesize speakerImage;
+@synthesize image;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,6 +32,8 @@
     [super viewDidLoad];
     self.title = self.name;
 	[self.speakerBio setText:self.bio];
+    [self.speakerTitle setText:self.sptitle];
+    [self.speakerImage setImage:self.image];
 }
 
 - (void)didReceiveMemoryWarning

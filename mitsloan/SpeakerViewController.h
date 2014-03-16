@@ -10,15 +10,21 @@
 
 @interface SpeakerViewController : UIViewController
 {
-    IBOutlet UILabel *speakerBio;
-    IBOutlet UILabel *speakerContact;
+    IBOutlet UITextView *speakerBio;
+    IBOutlet UITextView *speakerTitle;
+    IBOutlet UIImageView *speakerImage;
     NSString *bio;
     NSString *name;
+    NSString *sptitle;
+    UIImage *image;
 }
 
-@property(nonatomic, strong) UILabel *speakerBio;
-@property(nonatomic, strong) UILabel *speakerContact;
+@property(nonatomic, strong) UITextView *speakerBio;
+@property(nonatomic, strong) UITextView *speakerTitle;
+@property(nonatomic, strong) UIImageView *speakerImage;
 @property(nonatomic, strong) NSString *bio;
 @property(nonatomic, strong) NSString *name;
+@property(nonatomic, strong) NSString *sptitle;
+@property(nonatomic, strong) UIImage *image;
 
 @end
