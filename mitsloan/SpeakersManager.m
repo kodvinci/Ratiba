@@ -52,7 +52,7 @@ static SpeakersManager *defaultDataManager = nil;
     
     //TODO FIX FIX
     //[self removeAllSpeakers];
-    //[self fetchSpeakersXml];
+    [self fetchSpeakersXml];
     
     return self;
 }

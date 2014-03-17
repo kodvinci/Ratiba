@@ -46,7 +46,7 @@ static PanelsManager *defaultPanelsManager = nil;
     
     //TODO FIX FIX
     //[self removeAllPanels];
-    //[self fetchPanelsXml];
+    [self fetchPanelsXml];
     
     return self;
 }
